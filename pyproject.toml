@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scnet"
+version = "0.1.0"
+description = "SCNet music source separation model"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "StarryTong", email = "example@example.com" }
+]
+license = { text = "MIT" }
+
+dependencies = [
+  "accelerate==0.32.1",
+  "julius==0.2.7",
+  "ml_collections==0.1.1",
+  "numpy",
+  "PyYAML",
+  "soundfile==0.12.1",
+  "torch==2.9.0",
+  "torchaudio==2.9.0",
+  "tqdm",
+  "einops==0.6.1"
+]
