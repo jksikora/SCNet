@@ -16,7 +16,15 @@ class Seperator:
     def __init__(self, model, checkpoint_path):
         self.separator = load_model(model, checkpoint_path)
 
-        if torch.cuda.device_count():
+        def safe_cuda_is_available():
+            """Patch CUDA availability check to avoid initialization errors"""
+            try:
+                return torch.cuda.is_available()
+            except Exception as e:
+                print(f"WARNING, CUDA initialization failed — falling back to CPU; error:\n{e}")
+                return False
+            
+        if safe_cuda_is_available():
             self.device = torch.device('cuda')
         else:
             print("WARNING, using CPU")
