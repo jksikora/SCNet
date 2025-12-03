@@ -17,7 +17,7 @@ class Seperator:
         self.separator = load_model(model, checkpoint_path)
 
         def safe_cuda_is_available():
-            """Patch CUDA availability check to avoid initialization errors"""
+            """Patch CUDA availability check to avoid initialization errors."""
             try:
                 return torch.cuda.is_available()
             except Exception as e:
